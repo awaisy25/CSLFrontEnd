@@ -1,18 +1,18 @@
 import React, {useReducer, useState, useEffect} from 'react';
 import './App.css';
 import {formChangeData} from './reducers/FormData';
-import getData from './services/Calculator-api';
+import {getData, postCalculations} from './services/Calculator-api';
 import SelectOptions from './components/SelectOptions';
 
 function App() {
   //default form data
   const defaultData = {
-    Years: "",
+    Years: "1",
     University: "",
     in_state: false,
     Career: "",
     State: "US",
-    Budget: "",
+    Budget: 0,
     percent_income: 20,
     interest_rate: 5
   }
@@ -37,7 +37,8 @@ function App() {
    event.preventDefault();
    //set state to true, to show resulted data
    setSubmitted(true);
-   alert('You have submitted the form.')
+   //call the REST Endpoint in Calculator-api
+    postCalculations(formData);
  }
 
  const handleChange = event => {
@@ -48,13 +49,27 @@ function App() {
      value: isCheckbox ? event.target.checked : event.target.value
    })
  }
-
- const States = [{id: "ALABAMA", title:"Alabama"}];
+//Array for states
+ const States = [{id: "ALABAMA", title:"Alabama"},{id: "ALASKA", title:"Alaska"},{id: "ARIZONA", title:"Arizona"},
+ {id: "ARKANSAS", title:"Arkansas"}, {id: "CALIFORNIA", title:"California"}, {id: "CONNETICUT", title:"Conneticut"},
+ {id: "DELAWARE", title:"Delaware"}, {id: "FLORIDA", title:"Florida"}, {id: "GEORGIA", title:"Georgia"},
+ {id: "HAWAII", title:"Hawaii"}, {id: "IDAHO", title:"Idaho"},{id: "ILLINOIS", title:"Illinois"}, {id: "INDIANA", title:"Indiana"},
+ {id: "IOWA", title:"Iowa"}, {id: "KANSAS", title:"Kansas"}, {id: "COLORADO", title:"Colorado"}, {id: "KENTUCKY", title:"Kentucky"},
+ {id: "LOUISIANA", title:"Lousiana"}, {id: "MAINE", title:"Maine"}, {id: "MARLYAND", title:"Maryland"}, {id: "MASSACHUSETTS", title:"Massachusetts"},
+ {id: "MICHIGAN", title:"Michigan"}, {id: "MINNESOTA", title:"Minnesota"}, {id: "MISSISSIPPI", title:"Mississipi"},
+ {id: "MISSOURI", title:"Missouri"}, {id: "NEBRASKA", title:"Nesbraka"}, {id: "NEVADA", title:"Nevada"}, {id: "NEW HAMPSHIRE", title:"New Hampshire"},
+ {id: "NEW JERSEY", title:"New Jersey"}, {id: "NEW MEXICO", title:"New Mexico"}, {id: "NEW YORK", title:"New York"}, {id: "NORTH CAROLINA", title:"North Carolina"},
+ {id: "NORTH DAKOTA", title:"North Dakota"}, {id: "OHIO", title: "Ohio"}, {id: "OKLAHOMA", title:"Oklahoma"},{id: "OREGON", title:"Oregon"}, 
+ {id: "PENNSYLVANIA", title:"Pennsylvania"}, {id: "RHODE ISLAND", title:"Rhode Island"}, {id: "SOUTH CAROLINA", title:"South Carolina"},
+ {id: "SOUTH DAKOTA", title:"South Dakota"}, {id: "TENNESSEE", title:"Tennesse"}, {id: "TEXAS", title:"Texas"}, {id: "UTAH", title:"Utah"},
+ {id: "VERMONT", title:"Vermont"}, {id: "VIRGINIA", title:"Virginia"}, {id: "WASHINGTON", title:"Washington"}, {id: "WEST VRIGINIA", title:"West Virginia"},
+ {id: "WISCONSIN", title:"Wisconsin"}, {id: "WYOMING", title:"Wyoming"}];
 
  const clearForm = () => {
    dispatch({
     reset: true
-   })
+   });
+   setSubmitted(false);
  }
   return(
     <div className="wrapper">
@@ -68,6 +83,8 @@ function App() {
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
             </select>
           </label>
         </fieldset>
