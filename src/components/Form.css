@@ -1,0 +1,87 @@
+.form{
+    max-width: 650px;
+    background-color: #f2f2f2;
+    display: flex;
+    padding: 25px;
+    border-radius: 12px;
+    margin: 30px auto;
+    justify-content: center;
+    box-shadow: 4px 4px 6px -4px rgb(0 0 0 / 40%);
+
+}
+
+.para1{
+    color: rgb(140, 48,48);
+    font-weight: bold;
+}
+
+.para2{
+    font-style: italic;
+}
+
+.form >form{
+    display: flex;
+    flex-direction: column;
+}
+form label, .input{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: rgb(140, 48,48);
+    font-weight: bold;
+    font-size: 16px;
+}
+
+form select{
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 28px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.select option{
+    width: 100%;
+}
+.state{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.buttonWrapper{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#submit{
+    background-color: rgb(140, 48,48);
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-family: futura;
+    padding: 10px; 
+    border-radius: 8px;
+    box-shadow: 4px 4px 3px rgb(0 0 0 / 40%);
+}
+
+#reset{
+    background-color: #757677;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-family: futura;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 3px rgb(0 0 0 / 40%);
+    text-decoration: none;
+}
+
+.formLast{
+    margin-bottom: 6%;
+}
