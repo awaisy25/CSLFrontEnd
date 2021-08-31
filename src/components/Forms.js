@@ -3,6 +3,7 @@ import './Form.css';
 import {formChangeData} from '../reducers/FormData';
 import {getData, postCalculations} from '../services/Calculator-api';
 import SelectOptions from './SelectOptions';
+import ResultCard from './ResultCard';
 
 const Form= ()=> {
   //default form data
@@ -72,7 +73,7 @@ const Form= ()=> {
    setSubmitted(false);
  }
   return(
-    <div className="form">
+    <div className={`form ${isSubmit? 'formAndData' :''}`}>
       <form onSubmit={handleSubmit}>
           <p className="para1">Fill the form below to get your results:</p>
           <p className="para2">(All fields are required unless specified)</p>
@@ -127,16 +128,27 @@ const Form= ()=> {
         </div>
       </form>
       {isSubmit && 
-        <div> 
-          <h2>Results</h2>
-          <ul>
+        <div className="rightForm"> 
+            <div class="vl">
+                
+            </div>
+          <div className="resultContent">
+          <div className="RightResultHeading">Results</div>
+        
             {
               // eslint-disable-next-line array-callback-return
-              Object.entries(formData).map(([name, value]) => (
-                <li key={name}><strong>{name}</strong>: {value.toString()}</li>
-              ))
+            //   Object.entries(formData).map(([name, value, key]) => (
+            //     <li key={name}><strong>{name}</strong>: {value.toString()}</li>
+               
+            //   ))
+
+            <div>
+                     <ResultCard formData={formData} title="Loan Breakdown" fee="$23000" paid="$4" uni="Comsats" debt="$12000" years="1.5" />
+            <ResultCard formData={formData} title="Loan Breakdown" fee="$23000" paid="$4" uni="Comsats" debt="$12000" years="1.5" />
+            </div>
             }
-          </ul>
+         
+          </div>
         </div>
       }
     </div>
