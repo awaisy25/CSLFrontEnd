@@ -1,5 +1,5 @@
 import React, { useReducer, useState, useEffect } from "react";
-import "./Form.css";
+import "./styles/Form.css";
 import { formChangeData } from "../reducers/FormData";
 import { getData, postCalculations } from "../services/Calculator-api";
 import SelectOptions from "./SelectOptions";
@@ -217,9 +217,9 @@ const Form = () => {
 
         <div className="buttonWrapper">
           <button id="submit" type="submit">
-            Submit
+            Calculate
           </button>
-          <input id="reset" type="reset" onClick={clearForm} value="Reset" />
+          <input id="reset" type="reset" onClick={clearForm} value="Clear" />
         </div>
       </form>
       {isSubmit && (

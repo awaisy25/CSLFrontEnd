@@ -1,5 +1,5 @@
 import React from "react";
-import "./BottomContainer.css";
+import "./styles/BottomContainer.css";
 
 function BottomContainer() {
   return (

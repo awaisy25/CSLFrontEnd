@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./ResultCard.css";
+import "./styles/ResultCard.css";
 
 function ResultCard({ formData, title, fee, paid, uni, debt, years }) {
   useEffect(() => {

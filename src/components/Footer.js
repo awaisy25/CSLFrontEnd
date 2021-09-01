@@ -2,7 +2,7 @@ import React from "react";
 import fb from "../assets/Facebook.png";
 import tw from "../assets/Twitter.png";
 import ln from "../assets/Linkedin.png";
-import "./Footer.css";
+import "./styles/Footer.css";
 
 function Footer() {
   return (

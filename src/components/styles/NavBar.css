@@ -9,7 +9,16 @@
   border-bottom-color: rgb(140, 48, 48);
 }
 
+#navbar-logo{
+  height: 30px;
+  width: 30px;
+  margin-right: 8px;
+}
 .logoTitle {
   display: flex;
   align-items: center;
+}
+
+#navbar-title {
+  font-weight: bold;
 }
