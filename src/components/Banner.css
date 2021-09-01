@@ -1,3 +1,7 @@
+@font-face {
+    font-family: 'AvenirLTStd-Black';
+    src: local('AvenirLTStd-Black'), url(../assets/fonts/Avenir/avenir_ff/AvenirLTStd-Black.otf) format('otf');
+  }
 .bannerWrapper {
   width: 100%;
   display: flex;
@@ -35,4 +39,5 @@
   width: 50%;
   text-align: left;
   margin-bottom: 1rem;
+  font-family: AvenirLTStd-Black;
 }

@@ -175,7 +175,7 @@ const Form = () => {
         <label>
           <p>Yearly amount paid towards Tuition ($)</p>
           <input
-            className="input"
+            className="inputNumeric"
             type="number"
             name="Budget"
             placeholder="$0.00"
@@ -189,7 +189,7 @@ const Form = () => {
         <label>
           <p>Amount From Salary (%)</p>
           <input
-            className="input"
+            className="inputNumeric"
             type="number"
             name="percent_income"
             min="0"
@@ -203,7 +203,7 @@ const Form = () => {
         <label>
           <p>Interest Rate (%)</p>
           <input
-            className="input formLast"
+            className="inputNumeric formLast"
             type="number"
             name="interest_rate"
             min="0"
