@@ -1,0 +1,42 @@
+.footer {
+  background-color: rgb(140, 48, 48);
+  position: relative;
+  bottom: 0;
+  padding: 25px;
+  font-size: 14px;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+}
+
+.footerLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerLeftHeader {
+  font-size: 20px;
+  margin-bottom: 0.5rem;
+}
+
+.footerLeftImages > img {
+  padding-right: 10px;
+}
+
+.footerMid {
+  color: white;
+  font-weight: bold;
+}
+
+.footerMid > div {
+  margin-bottom: 10px;
+}
+
+.footerRight {
+  font-weight: bold;
+  text-align: right;
+}
+
+.footerRight > div {
+  margin-bottom: 10px;
+}

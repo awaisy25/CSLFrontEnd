@@ -1,0 +1,61 @@
+.bottomContainer {
+  width: 100%;
+  background: #f2f2f2;
+  display: flex;
+  z-index: 1;
+}
+
+.containerImg {
+  background: linear-gradient(
+      to bottom,
+      rgb(242, 242, 242, 1),
+      rgb(242, 242, 242, 0.94),
+      rgb(242, 242, 242, 0.45)
+    ),
+    url("https://www.calculatestudentloans.com/student_loan_calculator/static/images/highschool.png");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.bottomContainerAbout {
+  background: transparent;
+  width: 100%;
+  height: 20%;
+  position: relative;
+  left: 15%;
+  top: 2.5%;
+  width: 70%;
+  overflow: auto;
+  padding-top: 20px;
+  padding-bottom: 70px;
+}
+
+.aboutHeader {
+  font-family: futura;
+  font-size: 32px;
+  margin-bottom: 40px;
+  background: #f2f2f2;
+}
+
+.aboutHeader > p {
+  margin-bottom: 1rem;
+}
+
+.paragraph-section {
+  margin-bottom: 40px;
+}
+
+.app-header {
+  font-family: futura;
+  font-size: 22px;
+}
+
+.feedback {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}

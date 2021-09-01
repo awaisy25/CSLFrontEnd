@@ -1,21 +1,21 @@
-import React, {useReducer, useState, useEffect} from 'react';
-import './App.css';
-import {formChangeData} from './reducers/FormData';
-import {getData, postCalculations} from './services/Calculator-api';
-import SelectOptions from './components/SelectOptions';
-import Form from './components/Forms';
-import Banner from './components/Banner';
-import NavBar from './components/NavBar';
+import React, { useReducer, useState, useEffect } from "react";
+import "./App.css";
+import Form from "./components/Forms";
+import Banner from "./components/Banner";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+import BottomContainer from "./components/BottomContainer";
 
 function App() {
-   
-  return(
+  return (
     <div className="App">
-      <NavBar/>
-      <Banner/>
-       <Form/>
+      <NavBar />
+      <Banner />
+      <Form />
+      <BottomContainer />
+      <Footer />
     </div>
-  )
+  );
 }
 
 export default App;
