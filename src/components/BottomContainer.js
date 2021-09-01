@@ -6,7 +6,9 @@ function BottomContainer() {
     <div className="bottomContainer">
       <div className="containerImg">
         <div className="bottomContainerAbout">
-          <div className="aboutHeader">How Our Calculator Works</div>
+          <div className="aboutHeader">
+            How Our <span>Calculator</span> Works
+          </div>
           <p>
             For more information please see the{" "}
             <a
