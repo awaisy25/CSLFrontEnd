@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../assets/logo.png";
 import "./styles/NavBar.css";
 
-function NavBar() {
+function Header() {
   return (
     <div className="navBar">
       <div className="logoTitle">
@@ -13,4 +13,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default Header;

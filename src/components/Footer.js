@@ -2,6 +2,7 @@ import React from "react";
 import fb from "../assets/Facebook.png";
 import tw from "../assets/Twitter.png";
 import ln from "../assets/Linkedin.png";
+import { Link } from "react-router-dom";
 import "./styles/Footer.css";
 
 function Footer() {
@@ -17,7 +18,7 @@ function Footer() {
       </div>
 
       <ul className="footerMid">
-        <li>About Us</li>
+        <li><Link to="/about">About Us </Link></li>
         <li>Privacy</li>
         <li>FAQ</li>
       </ul>

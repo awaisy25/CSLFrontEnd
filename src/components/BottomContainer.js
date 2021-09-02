@@ -19,7 +19,7 @@ function BottomContainer() {
             </a>
           </p>
 
-          <div class="paragraph-section">
+          <div className="paragraph-section">
             <p>
               Our calculator first works by getting the total amount of debt you
               will have after school based on university's tuition and how much
@@ -34,11 +34,11 @@ function BottomContainer() {
               loans.
             </p>
           </div>
-          <div class="app-header">
+          <div className="app-header">
             Factors that are not included in this calculation
           </div>
 
-          <ul class="list-style">
+          <ul className="list-style">
             <li>Taxes (State &amp; Federal)</li>
             <li>University dorming prices</li>
             <li>Cost of living in each state</li>

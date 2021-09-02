@@ -225,7 +225,7 @@ const Form = () => {
       </form>
       {isSubmit && (
         <div className="rightForm">
-          <div class="vl"></div>
+          <div className="vl"></div>
           <div className="resultContent">
             <div className="RightResultHeading">Results</div>
 
