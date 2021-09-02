@@ -1,3 +1,4 @@
+
 .footer {
   background-color: rgb(140, 48, 48);
   position: relative;
@@ -17,6 +18,7 @@
 .footerLeftHeader {
   font-size: 20px;
   margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 
 .footerLeftImages > img {
@@ -25,7 +27,6 @@
 
 .footerMid {
   color: white;
-  font-weight: bold;
 }
 
 .footerMid > div {
@@ -33,10 +34,16 @@
 }
 
 .footerRight {
-  font-weight: bold;
   text-align: right;
 }
 
 .footerRight > div {
   margin-bottom: 10px;
+}
+
+.footerRight, .footerMid {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-weight:bold;
 }

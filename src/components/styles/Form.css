@@ -8,6 +8,13 @@
   justify-content: center;
   box-shadow: 4px 4px 6px -4px rgb(0 0 0 / 40%);
 }
+
+.form .para1, .form .para2 {
+  text-align: center;
+  margin:0;
+}
+
+
 .formAndData {
   max-width: 950px;
 }
@@ -19,7 +26,9 @@
 .para2 {
   font-style: italic;
 }
-
+.form-para {
+  margin-bottom: 4%;
+}
 .form > form {
   display: flex;
   flex-direction: column;
@@ -28,9 +37,10 @@
 form label,
 .input {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  margin-bottom: 4%;
+}
+
+form label {
   color: rgb(140, 48, 48);
   font-weight: bold;
   font-size: 16px;
@@ -85,9 +95,6 @@ form select {
   text-decoration: none;
 }
 
-.formLast {
-  margin-bottom: 6%;
-}
 
 .rightForm {
   display: flex;

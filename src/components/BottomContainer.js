@@ -7,7 +7,7 @@ function BottomContainer() {
       <div className="containerImg">
         <div className="bottomContainerAbout">
           <div className="aboutHeader">
-            How Our <span>Calculator</span> Works
+            How Our <span id="bottom-calc-header">Calculator</span> Works
           </div>
           <p>
             For more information please see the{" "}

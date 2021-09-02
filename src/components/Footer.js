@@ -16,16 +16,16 @@ function Footer() {
         </div>
       </div>
 
-      <div className="footerMid">
-        <div>About Us</div>
-        <div>Privacy</div>
-        <div>FAQ</div>
-      </div>
+      <ul className="footerMid">
+        <li>About Us</li>
+        <li>Privacy</li>
+        <li>FAQ</li>
+      </ul>
 
-      <div className="footerRight">
-        <div>contact@calculatestudentloans.com</div>
-        <div>© 2021 Calculate Student Loans</div>
-      </div>
+      <ul className="footerRight">
+        <li>contact@calculatestudentloans.com</li>
+        <li>© 2021 Calculate Student Loans</li>
+      </ul>
     </div>
   );
 }

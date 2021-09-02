@@ -35,14 +35,14 @@
   padding-bottom: 70px;
 }
 
-.aboutHeader {
+.aboutHeader, #bottom-calc-header {
   font-family: futura;
   font-size: 32px;
   margin-bottom: 40px;
   background: #f2f2f2;
 }
 
-.aboutHeader > span {
+#bottom-calc-header {
   color: rgb(140, 48, 48);
 }
 .aboutHeader > p {

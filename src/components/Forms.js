@@ -113,11 +113,12 @@ const Form = () => {
   return (
     <div className={`form ${isSubmit ? "formAndData" : ""}`}>
       <form onSubmit={handleSubmit}>
-        <p className="para1">Fill the form below to get your results:</p>
-        <p className="para2">(All fields are required unless specified)</p>
-
+        <div className="form-para">
+          <p className="para1">Fill the form below to get your results:</p>
+          <p className="para2">(All fields are required unless specified)</p>
+        </div>
         <label>
-          <p>Years in School</p>
+          Years in School
           <select
             className="select"
             name="Years"
@@ -134,7 +135,7 @@ const Form = () => {
         </label>
 
         <label>
-          <p>University</p>
+          University
           <SelectOptions
             name="University"
             change={handleChange}
@@ -144,7 +145,7 @@ const Form = () => {
         </label>
 
         <label className="state">
-          <p>In State:</p>{" "}
+          In State:
           <input
             type="checkbox"
             name="in_state"
@@ -154,7 +155,7 @@ const Form = () => {
         </label>
 
         <label>
-          <p>Career</p>
+          Career
           <SelectOptions
             name="Career"
             change={handleChange}
@@ -164,7 +165,7 @@ const Form = () => {
         </label>
 
         <label>
-          <p>State</p>
+          State
           <SelectOptions
             name="State"
             change={handleChange}
@@ -173,7 +174,7 @@ const Form = () => {
           />
         </label>
         <label>
-          <p>Yearly amount paid towards Tuition ($)</p>
+          Yearly amount paid towards Tuition ($)
           <input
             className="input"
             type="number"
@@ -187,7 +188,7 @@ const Form = () => {
           />
         </label>
         <label>
-          <p>Amount From Salary (%)</p>
+          Amount From Salary (%)
           <input
             className="input"
             type="number"
@@ -201,7 +202,7 @@ const Form = () => {
           />
         </label>
         <label>
-          <p>Interest Rate (%)</p>
+        Interest Rate (%)
           <input
             className="input formLast"
             type="number"
@@ -229,12 +230,7 @@ const Form = () => {
             <div className="RightResultHeading">Results</div>
 
             {
-              // eslint-disable-next-line array-callback-return
-              //   Object.entries(formData).map(([name, value, key]) => (
-              //     <li key={name}><strong>{name}</strong>: {value.toString()}</li>
-
-              //   ))
-
+    
               <div>
                 <ResultCard
                   formData={formData}
