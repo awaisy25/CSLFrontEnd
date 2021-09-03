@@ -6,7 +6,9 @@ import Footer from "./components/Footer";
 import BottomContainer from "./components/BottomContainer";
 import './App.css';
 import About from './routes/About';
-import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
+import Privacy from './routes/Privacy';
+import FAQ from './routes/FAQ';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 function App() {
   //the Navbar an footer component will be displayed across all of the pages
@@ -22,6 +24,12 @@ function App() {
           </Route>
           <Route path="/about">
             <About />
+          </Route>
+          <Route path="/privacy">
+            <Privacy />
+          </Route>
+          <Route path="/faq">
+            <FAQ />
           </Route>
         </Switch>
         <Footer />
