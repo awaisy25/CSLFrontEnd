@@ -1,5 +1,5 @@
 import React, { useReducer, useState, useEffect } from "react";
-import "./styles/Form.css";
+import "./styles/Form.scss";
 import { formChangeData } from "../reducers/FormData";
 import { getData, postCalculations } from "../services/Calculator-api";
 import SelectOptions from "./SelectOptions";
@@ -225,7 +225,7 @@ const Form = () => {
       </form>
       {isSubmit && (
         <div className="rightForm">
-          <div class="vl"></div>
+          <div className="vl"></div>
           <div className="resultContent">
             <div className="RightResultHeading">Results</div>
 
