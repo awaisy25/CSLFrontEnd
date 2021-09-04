@@ -19,17 +19,17 @@ function About() {
     </div>
     <div className="paragraph-section">
         <h3 className="page-header">For Universities:</h3>
-        <p>University’s tuition prices were researched and collected by searching through the listing of United States Universities on <a href={links.ICU} className="icu-link" target="blank">https://www.4icu.org/us/a-z/.</a>
+        <p>University’s tuition prices were researched and collected by searching through the listing of United States Universities on <a href={links.ICU} className="link" target="blank">https://www.4icu.org/us/a-z/.</a>
             If your University tuition pricing is not accurate or not up to date please contact us.</p>
     </div>
     <div className="paragraph-section">
         <h3 className="page-header">Feedback:</h3>
-        <p>Please click <a target="blank" className="icu-link" href={links.gForms}>here</a> to provide some feedback on our site. This will help us in our goals for helping students. 
+        <p>Please click <a target="blank" className="link" href={links.gForms}>here</a> to provide some feedback on our site. This will help us in our goals for helping students. 
         </p>
         </div>
     <div className="paragraph-section">
         <h3 className="page-header">Contact Us:</h3>
-        <p>For any questions, issues or feedback please email us at <span className="icu-link">contact@calculatestudenloans.com</span></p>
+        <p>For any questions, issues or feedback please email us at <span className="link">contact@calculatestudenloans.com</span></p>
     </div>
 </div>
 

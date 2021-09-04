@@ -1,0 +1,24 @@
+.FAQ-container {
+    width: 68%;
+    margin: 50px auto;
+    overflow: auto;
+    padding-bottom: 150px;
+}
+.FAQ-header {
+    color:rgb(140, 48,48); 
+    font-size: 32px; 
+    font-family:futura;
+    margin-bottom: 20px;
+    
+}
+
+.link {
+    color: rgb(140, 48,48);
+    font-weight: bold;
+}
+
+@media screen and (max-width: 480px) {
+    .FAQ-header {
+        font-size: 20px;
+    }
+}
