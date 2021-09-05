@@ -11,14 +11,20 @@ function Footer() {
     textDecoration: "none",
     color: "white",
   };
+  //links for sharing on social pages
+  const links = {
+    fb: "http://www.facebook.com/sharer.php?u=https://www.calculatestudentloans.com/",
+    tw: "https://twitter.com/share?url=https://www.calculatestudentloans.com/&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons",
+    ln: "http://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.calculatestudentloans.com/"
+  }
   return (
     <div className="footer">
       <div className="footerLeft">
         <div className="footerLeftHeader">Share On</div>
         <div className="footerLeftImages">
-          <img src={fb} alt="" width="30" height="30" />
-          <img src={tw} alt="" width="30" height="30" />
-          <img src={ln} alt="" width="30" height="30" />
+          <a href={links.fb} target="_blank" rel="noreferrer"><img src={fb} alt="" width="30" height="30" /></a>
+          <a href={links.tw} target="_blank" rel="noreferrer"><img src={tw} alt="" width="30" height="30" /> </a>
+          <a href={links.ln} target="_blank" rel="noreferrer"><img src={ln} alt="" width="30" height="30" /> </a>
         </div>
       </div>
 
