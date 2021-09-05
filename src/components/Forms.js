@@ -51,7 +51,6 @@ const Form = () => {
       value: isCheckbox ? event.target.checked : event.target.value,
     });
   };
-  //Array for states
   const States = [
     { id: "ALABAMA", title: "Alabama" },
     { id: "ALASKA", title: "Alaska" },
