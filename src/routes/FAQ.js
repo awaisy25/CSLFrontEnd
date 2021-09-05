@@ -58,8 +58,7 @@ function FAQ() {
         </div>
         <div className="paragraph-section">
        <h3 className="app-header">Data Resources?</h3>
-        <p>We got the university tuition by looking through the university's listed through this site
-            <a href={links.ICU} className="link" target="blank">https://www.4icu.org/us/a-z/.</a>
+        <p>We got the university tuition by looking through the university's listed through this site <a href={links.ICU} className="link" target="blank">https://www.4icu.org/us/a-z/.</a>
         </p>
         <p>Salary data for each job is researched through multiple online resources. We analyzed the data from multiple source to create the best possible assumption.
         </p>
