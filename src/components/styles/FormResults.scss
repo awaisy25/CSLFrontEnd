@@ -1,0 +1,35 @@
+/*css for the results after successful submission*/
+.line-seperator {
+    grid-column-start: 2;
+    border-left: 1px dashed rgb(140, 48,48);
+    height: 850px;
+  }
+  
+  .results-section {
+    grid-column-start: 3;
+  }
+  
+  .results-header {
+    margin-bottom: 15%;
+  }
+  
+  .results-header p {
+    color:rgb(140, 48,48); 
+    font-weight: bold;
+  }
+  /*Cards tstyles in result section. Adding on to the current CSS */
+  .cards-style {
+    height: 250px;
+    margin-bottom: 6%;
+  }
+  
+  .card-headers-style {
+    color: white;
+    background-color: rgb(140, 48,48);
+    font-weight: bold;
+  }
+  
+  .result-value {
+    color:rgb(140, 48,48);
+    font-weight: bold;
+  }

@@ -3,7 +3,7 @@ import "./styles/Form.scss";
 import { formChangeData } from "../reducers/FormData";
 import { getData, postCalculations } from "../services/Calculator-api";
 import SelectOptions from "./SelectOptions";
-import ResultCard from "./ResultCard";
+import FormResults from "./FormResults";
 
 const Form = () => {
   //default form data
@@ -110,149 +110,122 @@ const Form = () => {
     setSubmitted(false);
   };
   return (
-    <div className={`form ${isSubmit ? "formAndData" : ""}`}>
+    <div className={isSubmit ? "formAndData": "form"}>
       <form onSubmit={handleSubmit}>
         <div className="form-para">
           <p className="para1">Fill the form below to get your results:</p>
           <p className="para2">(All fields are required unless specified)</p>
         </div>
-        <label>
-          Years in School
-          <select
-            className="select"
-            name="Years"
-            onChange={handleChange}
-            value={formData.Years}
-          >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-          </select>
-        </label>
+        <div className="calc-fields">
+          <label>
+            Years in School
+            <select
+              className="select"
+              name="Years"
+              onChange={handleChange}
+              value={formData.Years}
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+          </label>
 
-        <label>
-          University
-          <SelectOptions
-            name="University"
-            change={handleChange}
-            value={formData.University}
-            items={unvData}
-          />
-        </label>
+          <label>
+            University
+            <SelectOptions
+              name="University"
+              change={handleChange}
+              value={formData.University}
+              items={unvData}
+            />
+          </label>
 
-        <label className="state">
-          In State:
-          <input
-            type="checkbox"
-            name="in_state"
-            onChange={handleChange}
-            value={formData.checkbox}
-          />
-        </label>
+          <label className="state">
+            In State:
+            <input
+              type="checkbox"
+              name="in_state"
+              onChange={handleChange}
+              value={formData.checkbox}
+            />
+          </label>
 
-        <label>
-          Career
-          <SelectOptions
-            name="Career"
-            change={handleChange}
-            value={formData.Career}
-            items={careerData}
-          />
-        </label>
+          <label>
+            Career
+            <SelectOptions
+              name="Career"
+              change={handleChange}
+              value={formData.Career}
+              items={careerData}
+            />
+          </label>
 
-        <label>
-          State
-          <SelectOptions
-            name="State"
-            change={handleChange}
-            value={formData.State}
-            items={States}
-          />
-        </label>
-        <label>
-          Yearly amount paid towards Tuition ($)
-          <input
-            className="input"
-            type="number"
-            name="Budget"
-            placeholder="$0.00"
-            min="0"
-            max="100000"
-            onChange={handleChange}
-            required
-            value={formData.Budget}
-          />
-        </label>
-        <label>
-          Amount From Salary (%)
-          <input
-            className="input"
-            type="number"
-            name="percent_income"
-            min="0"
-            max="100"
-            placeholder="% 0"
-            onChange={handleChange}
-            required
-            value={formData.percent_income}
-          />
-        </label>
-        <label>
-        Interest Rate (%)
-          <input
-            className="input formLast"
-            type="number"
-            name="interest_rate"
-            min="0"
-            max="50"
-            placeholder="% 0"
-            onChange={handleChange}
-            required
-            value={formData.interest_rate}
-          />
-        </label>
+          <label>
+            State
+            <SelectOptions
+              name="State"
+              change={handleChange}
+              value={formData.State}
+              items={States}
+            />
+          </label>
+          <label>
+            Yearly amount paid towards Tuition ($)
+            <input
+              className="input"
+              type="number"
+              name="Budget"
+              placeholder="$0.00"
+              min="0"
+              max="100000"
+              onChange={handleChange}
+              required
+              value={formData.Budget}
+            />
+          </label>
+          <label>
+            Amount From Salary (%)
+            <input
+              className="input"
+              type="number"
+              name="percent_income"
+              min="0"
+              max="100"
+              placeholder="% 0"
+              onChange={handleChange}
+              required
+              value={formData.percent_income}
+            />
+          </label>
+          <label>
+          Interest Rate (%)
+            <input
+              className="input formLast"
+              type="number"
+              name="interest_rate"
+              min="0"
+              max="50"
+              placeholder="% 0"
+              onChange={handleChange}
+              required
+              value={formData.interest_rate}
+            />
+          </label>
 
-        <div className="buttonWrapper">
-          <button id="submit" type="submit">
-            Calculate
-          </button>
-          <input id="reset" type="reset" onClick={clearForm} value="Clear" />
-        </div>
-      </form>
-      {isSubmit && (
-        <div className="rightForm">
-          <div className="vl"></div>
-          <div className="resultContent">
-            <div className="RightResultHeading">Results</div>
-
-            {
-    
-              <div>
-                <ResultCard
-                  formData={formData}
-                  title="Loan Breakdown"
-                  fee="$23000"
-                  paid="$4"
-                  uni="Comsats"
-                  debt="$12000"
-                  years="1.5"
-                />
-                <ResultCard
-                  formData={formData}
-                  title="Loan Breakdown"
-                  fee="$23000"
-                  paid="$4"
-                  uni="Comsats"
-                  debt="$12000"
-                  years="1.5"
-                />
-              </div>
-            }
+          <div className="buttonWrapper">
+            <button id="submit" type="submit">
+              Calculate
+            </button>
+            <input id="reset" type="reset" onClick={clearForm} value="Clear" />
           </div>
         </div>
+      </form>
+      { isSubmit && (
+        <FormResults />
       )}
     </div>
   );
