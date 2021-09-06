@@ -8,7 +8,7 @@ export const getData = (param) => {
     const url = `https://1pf0hc31cf.execute-api.us-east-2.amazonaws.com/dev/${param}/`;
     const headers = {
         'Content-Type': 'application/json',
-        'x-api-key': 'IHCVXdhsFt8cDzezfc7KIaEMR457ENvR9Q9ybbqJ',
+        'x-api-key': 'ak5nedNedF9jtFeKW85Td6srqguurDYhd276Wtx9',
         Accept: 'application/json'
     };
     return new Promise((resolve, reject) => {
@@ -26,7 +26,7 @@ export const getUniversity = (id) => {
     const url = `https://1pf0hc31cf.execute-api.us-east-2.amazonaws.com/dev/universities/${id}`;
     const headers = {
         'Content-Type': 'application/json',
-        'x-api-key': 'IHCVXdhsFt8cDzezfc7KIaEMR457ENvR9Q9ybbqJ',
+        'x-api-key': 'ak5nedNedF9jtFeKW85Td6srqguurDYhd276Wtx9',
         Accept: 'application/json'
     };
     axios.get(url, {headers})
@@ -52,7 +52,7 @@ export const postCalculations = async(data) => {
     }
     const headers = {
         'Content-Type': 'application/json',
-        'x-api-key': 'IHCVXdhsFt8cDzezfc7KIaEMR457ENvR9Q9ybbqJ',
+        'x-api-key': 'ak5nedNedF9jtFeKW85Td6srqguurDYhd276Wtx9',
         Accept: '*/*'
     };
   
