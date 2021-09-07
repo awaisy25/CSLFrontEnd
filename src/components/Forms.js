@@ -153,7 +153,7 @@ const Form = () => {
             <SelectOptions
               name="University"
               change={handleChange}
-              value={formData.University}
+              value={""}
               items={unvData}
             />
           </label>
@@ -173,7 +173,7 @@ const Form = () => {
             <SelectOptions
               name="Career"
               change={handleChange}
-              value={formData.Career}
+              value={""}
               items={careerData}
             />
           </label>
@@ -183,7 +183,7 @@ const Form = () => {
             <SelectOptions
               name="State"
               change={handleChange}
-              value={formData.State}
+              value={"US"}
               items={States}
             />
           </label>

@@ -1,7 +1,7 @@
 const SelectOptions = (props) => {
     return (
-        <select name={props.name} onChange={props.change} value={props.value}>
-            <option value="">{props.name}</option>
+        <select name={props.name} required onChange={props.change}>
+            <option value={props.value}>{props.name}</option>
         {
             
             props.items.map(item => {
