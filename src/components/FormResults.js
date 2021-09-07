@@ -35,7 +35,7 @@ function FormResults(props) {
                 Loan Breakdown:
               </div>
               <div className="card-body">
-                <p><strong>{University.title}</strong> Yearly Tuition Fees: <span className="result-value">
+                <p><strong>{University.title}</strong> {In_state ? "in State": ""} Yearly Tuition Fees: <span className="result-value">
                 ${In_state ? University.in_state.toLocaleString() : University.out_state.toLocaleString()}</span></p>
                 <p><strong>Amount paid</strong> towards yearly tuition: <span className="result-value">${Budget.toLocaleString()}</span></p>
                 <p>Number of years in school: <span className="result-value">{Years}</span></p>
