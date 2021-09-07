@@ -21,6 +21,8 @@ const Form = () => {
   const [isSubmit, setSubmitted] = useState(false);
   const [unvData, setUnvData] = useState([]);
   const [careerData, setCareerData] = useState([]);
+  const [calcResults, setCalcResults] = useState({}); 
+  const [isError, showError] = useState({exists: false, message: ""});
   //each render retrieve Career and University data from API
   useEffect(() => {
     getData("jandu")
@@ -35,12 +37,22 @@ const Form = () => {
     //array will make sure it only runs once
   }, []);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    //set state to true, to show resulted data
-    setSubmitted(true);
-    //call the REST Endpoint in Calculator-api
-    postCalculations(formData);
+    try {
+      //call the REST Endpoint in Calculator-api. Have it retrieve the data before showing the results
+      const data = await postCalculations(formData);
+      setCalcResults(data);
+      //show the results section
+      showError({exists: false, message: ''});
+      setSubmitted(true);
+    } catch(error){
+      setSubmitted(false);
+      //updating error object if custom error message is recieved
+      showError({exists:true, message: error})
+    }
+   
+    
   };
 
   const handleChange = (event) => {
@@ -50,6 +62,14 @@ const Form = () => {
       name: event.target.name,
       value: isCheckbox ? event.target.checked : event.target.value,
     });
+  };
+
+  const clearForm = () => {
+    dispatch({
+      reset: true,
+    });
+    showError({exists: false, message: ''});
+    setSubmitted(false);
   };
   const States = [
     { id: "ALABAMA", title: "Alabama" },
@@ -103,12 +123,6 @@ const Form = () => {
     { id: "WYOMING", title: "Wyoming" },
   ];
 
-  const clearForm = () => {
-    dispatch({
-      reset: true,
-    });
-    setSubmitted(false);
-  };
   return (
     <div className={isSubmit ? "formAndData": "form"}>
       <form onSubmit={handleSubmit}>
@@ -195,6 +209,7 @@ const Form = () => {
               name="percent_income"
               min="0"
               max="100"
+              step="any"
               placeholder="% 0"
               onChange={handleChange}
               required
@@ -209,6 +224,7 @@ const Form = () => {
               name="interest_rate"
               min="0"
               max="50"
+              step="any"
               placeholder="% 0"
               onChange={handleChange}
               required
@@ -223,9 +239,10 @@ const Form = () => {
             <input id="reset" type="reset" onClick={clearForm} value="Clear" />
           </div>
         </div>
+        {isError.exists && <span className="errorMessage">{isError.message}</span>}
       </form>
       { isSubmit && (
-        <FormResults />
+        <FormResults data={calcResults}/>
       )}
     </div>
   );

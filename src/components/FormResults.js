@@ -6,6 +6,21 @@ import React from 'react';
 import "../components/styles/FormResults.scss"
 
 function FormResults(props) {
+    console.log(props.data)
+    //const Budget = props.budget;
+    const {
+        University, //will hold the university name, both in state and out state tuition
+        Budget,
+        Years,
+        In_state,
+        Loan_total,
+        Job, //this is returned as an object {id, title}
+        State,
+        Salary, //salary pbject will hold, entry, middle, and senior salary
+        Time, //this the numbe of months
+        Interest_paid,
+        Total_paid
+    } = props.data
     return (
     <React.Fragment>
         <div className="line-seperator"></div>
@@ -20,20 +35,21 @@ function FormResults(props) {
                 Loan Breakdown:
               </div>
               <div className="card-body">
-                <p><strong>Alabama A&M University</strong> Yearly Tuition Fees: <span className="result-value">$22,078</span></p>
-                <p><strong>Amount paid</strong> towards yearly tuition: <span className="result-value">$5000</span></p>
-                <p>Number of years in school: <span className="result-value">4</span></p>
-                <p>Post-education total student debt: <span className="result-value">$68,312</span></p>
+                <p><strong>{University.title}</strong> Yearly Tuition Fees: <span className="result-value">
+                ${In_state ? University.in_state.toLocaleString() : University.out_state.toLocaleString()}</span></p>
+                <p><strong>Amount paid</strong> towards yearly tuition: <span className="result-value">${Budget.toLocaleString()}</span></p>
+                <p>Number of years in school: <span className="result-value">{Years}</span></p>
+                <p>Post-education total student debt: <span className="result-value">${Loan_total.toLocaleString()}</span></p>
               </div>
             </div>
             <div className="card cards-style"> 
               <div className="card-header card-headers-style">
-                  Business Analyst Average Salary in Alabama
+                  {Job.title} Average Salary in {State}
               </div>
               <div className="card-body">
-                      <p><strong>Entry Level: </strong><span className="result-value">$67,552</span></p>
-                      <p><strong>Middle Level: </strong><span className="result-value">$75,034</span></p>
-                      <p><strong>Senior Level: </strong><span className="result-value">$79,357</span></p>
+                      <p><strong>Entry Level: </strong><span className="result-value">${Salary.entry.toLocaleString()}</span></p>
+                      <p><strong>Middle Level: </strong><span className="result-value">${Salary.middle.toLocaleString()}</span></p>
+                      <p><strong>Senior Level: </strong><span className="result-value">${Salary.senior.toLocaleString()}</span></p>
               </div>
             </div>
             <div className="card cards-style"> 
@@ -41,9 +57,9 @@ function FormResults(props) {
                   Estimated Payoff:
               </div>
               <div className="card-body">
-                <p><strong>Months to Payoff</strong> your Student Loans: <span className="result-value">67</span></p>
-                <p>Total payment towards <strong>Interest: </strong><span className="result-value">$10,320</span></p>
-                <p>Total payment towards <strong>Loans & Interest: </strong><span className="result-value">$78,632</span></p>
+                <p><strong>Months to Payoff</strong> your Student Loans: <span className="result-value">{Time}</span></p>
+                <p>Total payment towards <strong>Interest: </strong><span className="result-value">${Interest_paid.toLocaleString()}</span></p>
+                <p>Total payment towards <strong>Loans & Interest: </strong><span className="result-value">${Total_paid.toLocaleString()}</span></p>
               </div>
             </div>
           </div>
