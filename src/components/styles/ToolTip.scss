@@ -1,0 +1,22 @@
+.tool-tip-wrapper {
+    position: relative;
+    display:inline-block;
+}
+
+.tool-tip-wrapper .tip-info {
+  visibility: hidden;
+  position: absolute;
+  background-color: rgb(140, 48,48);
+  color: white;
+  text-align: center;
+  width: 250px;
+  font-size: 14px;
+  left: 10%;
+  bottom: 100%;
+  margin-left: -60px;
+  border-radius: 10px;
+  padding: 2%;
+}
+.tool-tip-wrapper:hover .tip-info {
+    visibility: visible;
+}

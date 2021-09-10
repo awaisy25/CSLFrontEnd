@@ -3,6 +3,7 @@ import "./styles/Form.scss";
 import { formChangeData } from "../reducers/FormData";
 import { getData, postCalculations } from "../services/Calculator-api";
 import SelectOptions from "./SelectOptions";
+import ToolTip from "./ToolTip";
 import FormResults from "./FormResults";
 //adding a comment
 const Form = () => {
@@ -132,7 +133,8 @@ const Form = () => {
         </div>
         <div className="calc-fields">
           <label>
-            Years in School
+            <ToolTip text="The number of years you will spend at your selected University" />
+            &nbsp;Years in School (opt.):
             <select
               className="select"
               name="Years"
@@ -149,7 +151,8 @@ const Form = () => {
           </label>
 
           <label>
-            University
+          <ToolTip text="The University you select, the yearly tuition of that school will be part of the calculation." />
+            &nbsp;University:
             <SelectOptions
               name="University"
               change={handleChange}
@@ -159,7 +162,8 @@ const Form = () => {
           </label>
 
           <label className="state">
-            In State:
+          <ToolTip text="Select this box if you live in the same state as the University selected" />
+            &nbsp;In State:
             <input
               type="checkbox"
               name="in_state"
@@ -169,7 +173,8 @@ const Form = () => {
           </label>
 
           <label>
-            Career
+          <ToolTip text="The career you want to pursue. Note the salary for each career differs by state" />
+            &nbsp;Career Choice:
             <SelectOptions
               name="Career"
               change={handleChange}
@@ -179,7 +184,8 @@ const Form = () => {
           </label>
 
           <label>
-            State
+          <ToolTip text="The state to live in after college. This field is Not Required Can leave as is if you are unsure where you want to live after college" />
+            &nbsp;State to live after school (opt.):
             <SelectOptions
               name="State"
               change={handleChange}
@@ -188,7 +194,8 @@ const Form = () => {
             />
           </label>
           <label>
-            Yearly amount paid towards Tuition ($)
+          <ToolTip text="How much money you plan to put towards tuition each year. This include scholarships & personal money. This is the amount contributed while in school" />
+            &nbsp;Yearly amount paid towards Tuition ($):
             <input
               className="input"
               type="number"
@@ -202,7 +209,8 @@ const Form = () => {
             />
           </label>
           <label>
-            Amount From Salary (%)
+          <ToolTip text="The percent of your income that goes towards your student loan payments. Note the default is 20%, but can be higher depending on interest rate." />
+            &nbsp;Amount From Salary (%):
             <input
               className="input"
               type="number"
@@ -217,7 +225,8 @@ const Form = () => {
             />
           </label>
           <label>
-          Interest Rate (%)
+          <ToolTip text="The average interest rate for your loans. Default is 5%" />
+            &nbsp;Interest Rate (%):
             <input
               className="input formLast"
               type="number"
