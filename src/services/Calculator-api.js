@@ -15,7 +15,14 @@ export const getData = (param) => {
         axios.get(url, {headers})
         .then(response => {
             //console.log(response);
-            resolve(response.data);
+             ///have to rename the id and title property to value and label for react select
+             const Universities = response.data.Universities.map(University => {
+                return {value: University.id, label: University.title}
+            })
+            const Jobs = response.data.Jobs.map(Job => {
+                return {value: Job.id, label: Job.title}
+            })
+            resolve({Universities, Jobs});
         }).catch(error => {
             reject(error)
         })

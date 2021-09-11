@@ -2,14 +2,16 @@ import React, { useReducer, useState, useEffect } from "react";
 import "./styles/Form.scss";
 import { formChangeData } from "../reducers/FormData";
 import { getData, postCalculations } from "../services/Calculator-api";
+import {years, States} from "../utils/dataSets";
 import SelectOptions from "./SelectOptions";
 import ToolTip from "./ToolTip";
 import FormResults from "./FormResults";
+import Select from 'react-select';
 //adding a comment
 const Form = () => {
   //default form data
   const defaultData = {
-    Years: "1",
+    Years: years[0], //format for react select
     University: "",
     in_state: false,
     Career: "",
@@ -65,6 +67,15 @@ const Form = () => {
     });
   };
 
+  const selectHandleChange = (event, action) => {
+    //console.log(event);
+    //console.log(action);
+    dispatch({
+      name: action.name,
+      value: event.value,
+    })
+  }
+
   const clearForm = () => {
     dispatch({
       reset: true,
@@ -72,58 +83,19 @@ const Form = () => {
     showError({exists: false, message: ''});
     setSubmitted(false);
   };
-  const States = [
-    { id: "ALABAMA", title: "Alabama" },
-    { id: "ALASKA", title: "Alaska" },
-    { id: "ARIZONA", title: "Arizona" },
-    { id: "ARKANSAS", title: "Arkansas" },
-    { id: "CALIFORNIA", title: "California" },
-    { id: "CONNETICUT", title: "Conneticut" },
-    { id: "DELAWARE", title: "Delaware" },
-    { id: "FLORIDA", title: "Florida" },
-    { id: "GEORGIA", title: "Georgia" },
-    { id: "HAWAII", title: "Hawaii" },
-    { id: "IDAHO", title: "Idaho" },
-    { id: "ILLINOIS", title: "Illinois" },
-    { id: "INDIANA", title: "Indiana" },
-    { id: "IOWA", title: "Iowa" },
-    { id: "KANSAS", title: "Kansas" },
-    { id: "COLORADO", title: "Colorado" },
-    { id: "KENTUCKY", title: "Kentucky" },
-    { id: "LOUISIANA", title: "Lousiana" },
-    { id: "MAINE", title: "Maine" },
-    { id: "MARLYAND", title: "Maryland" },
-    { id: "MASSACHUSETTS", title: "Massachusetts" },
-    { id: "MICHIGAN", title: "Michigan" },
-    { id: "MINNESOTA", title: "Minnesota" },
-    { id: "MISSISSIPPI", title: "Mississipi" },
-    { id: "MISSOURI", title: "Missouri" },
-    { id: "NEBRASKA", title: "Nesbraka" },
-    { id: "NEVADA", title: "Nevada" },
-    { id: "NEW HAMPSHIRE", title: "New Hampshire" },
-    { id: "NEW JERSEY", title: "New Jersey" },
-    { id: "NEW MEXICO", title: "New Mexico" },
-    { id: "NEW YORK", title: "New York" },
-    { id: "NORTH CAROLINA", title: "North Carolina" },
-    { id: "NORTH DAKOTA", title: "North Dakota" },
-    { id: "OHIO", title: "Ohio" },
-    { id: "OKLAHOMA", title: "Oklahoma" },
-    { id: "OREGON", title: "Oregon" },
-    { id: "PENNSYLVANIA", title: "Pennsylvania" },
-    { id: "RHODE ISLAND", title: "Rhode Island" },
-    { id: "SOUTH CAROLINA", title: "South Carolina" },
-    { id: "SOUTH DAKOTA", title: "South Dakota" },
-    { id: "TENNESSEE", title: "Tennesse" },
-    { id: "TEXAS", title: "Texas" },
-    { id: "UTAH", title: "Utah" },
-    { id: "VERMONT", title: "Vermont" },
-    { id: "VIRGINIA", title: "Virginia" },
-    { id: "WASHINGTON", title: "Washington" },
-    { id: "WEST VRIGINIA", title: "West Virginia" },
-    { id: "WISCONSIN", title: "Wisconsin" },
-    { id: "WYOMING", title: "Wyoming" },
-  ];
 
+
+//styles for select
+const selectStyles = {
+  control: styles => ({ ...styles, backgroundColor: 'white' }),
+  option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+    return {
+      ...styles,
+      backgroundColor: isSelected ? 'rgb(140, 48, 48)' : 'white',
+      color: isSelected ? 'white': 'black',
+    }
+  },
+}
   return (
     <div className={isSubmit ? "formAndData": "form"}>
       <form onSubmit={handleSubmit}>
@@ -133,31 +105,28 @@ const Form = () => {
         </div>
         <div className="calc-fields">
           <label>
-            <ToolTip text="The number of years you will spend at your selected University" />
+          <ToolTip text="The number of years you will spend at your selected University" />
             &nbsp;Years in School (opt.):
-            <select
-              className="select"
-              name="Years"
-              onChange={handleChange}
-              value={formData.Years}
-            >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-            </select>
+            <Select 
+            options={years}
+            defaultValue={formData.Years}
+            isSearchable
+            styles={selectStyles}
+            name="Years"
+            onChange={selectHandleChange}
+            />
           </label>
 
           <label>
           <ToolTip text="The University you select, the yearly tuition of that school will be part of the calculation." />
             &nbsp;University:
-            <SelectOptions
-              name="University"
-              change={handleChange}
-              value={""}
-              items={unvData}
+            <Select
+            options={unvData}
+            defaultValue={{value:"", label:"University"}}
+            isSearchable
+            styles={selectStyles}
+            name="University"
+            onChange={selectHandleChange}
             />
           </label>
 
@@ -175,22 +144,26 @@ const Form = () => {
           <label>
           <ToolTip text="The career you want to pursue. Note the salary for each career differs by state" />
             &nbsp;Career Choice:
-            <SelectOptions
+            <Select
+              options={careerData}
+              defaultValue={{value:"", label:"Career"}}
+              isSearchable
+              styles={selectStyles}
               name="Career"
-              change={handleChange}
-              value={""}
-              items={careerData}
+              onChange={selectHandleChange}
             />
           </label>
 
           <label>
           <ToolTip text="The state to live in after college. This field is Not Required Can leave as is if you are unsure where you want to live after college" />
             &nbsp;State to live after school (opt.):
-            <SelectOptions
+            <Select 
+              options={States}
+              defaultValue={States[0]}
+              isSearchable
+              styles={selectStyles}
               name="State"
-              change={handleChange}
-              value={"US"}
-              items={States}
+              onChange={selectHandleChange}
             />
           </label>
           <label>

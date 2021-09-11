@@ -1,0 +1,68 @@
+/*File to hold const variables for indefined data oustide of the APIS*/
+
+//Years for school
+
+export const years = [
+    {value: "1", label:"1 Year"},
+    {value:"2", label:"2 Years"},
+    {value:"3", label:"3 Years"},
+    {value:"4", label:"4 Years"},
+    {value:"5", label:"5 Years"},
+    {value:"6", label:"6 years"}
+  ]
+
+  //states. Default State value is for getting the average salary in the U.S
+
+  export const States = [
+    { value: "US", label: "State"},
+    { value: "ALABAMA", label: "Alabama" },
+    { value: "ALASKA", label: "Alaska" },
+    { value: "ARIZONA", label: "Arizona" },
+    { value: "ARKANSAS", label: "Arkansas" },
+    { value: "CALIFORNIA", label: "California" },
+    { value: "CONNETICUT", label: "Conneticut" },
+    { value: "DELAWARE", label: "Delaware" },
+    { value: "FLORIDA", label: "Florida" },
+    { value: "GEORGIA", label: "Georgia" },
+    { value: "HAWAII", label: "Hawaii" },
+    { value: "IDAHO", label: "Idaho" },
+    { value: "ILLINOIS", label: "Illinois" },
+    { value: "INDIANA", label: "Indiana" },
+    { value: "IOWA", label: "Iowa" },
+    { value: "KANSAS", label: "Kansas" },
+    { value: "COLORADO", label: "Colorado" },
+    { value: "KENTUCKY", label: "Kentucky" },
+    { value: "LOUISIANA", label: "Lousiana" },
+    { value: "MAINE", label: "Maine" },
+    { value: "MARLYAND", label: "Maryland" },
+    { value: "MASSACHUSETTS", label: "Massachusetts" },
+    { value: "MICHIGAN", label: "Michigan" },
+    { value: "MINNESOTA", label: "Minnesota" },
+    { value: "MISSISSIPPI", label: "Mississipi" },
+    { value: "MISSOURI", label: "Missouri" },
+    { value: "MONTANA", label: "Montana"},
+    { value: "NEBRASKA", label: "Nesbraka" },
+    { value: "NEVADA", label: "Nevada" },
+    { value: "NEW HAMPSHIRE", label: "New Hampshire" },
+    { value: "NEW JERSEY", label: "New Jersey" },
+    { value: "NEW MEXICO", label: "New Mexico" },
+    { value: "NEW YORK", label: "New York" },
+    { value: "NORTH CAROLINA", label: "North Carolina" },
+    { value: "NORTH DAKOTA", label: "North Dakota" },
+    { value: "OHIO", label: "Ohio" },
+    { value: "OKLAHOMA", label: "Oklahoma" },
+    { value: "OREGON", label: "Oregon" },
+    { value: "PENNSYLVANIA", label: "Pennsylvania" },
+    { value: "RHODE ISLAND", label: "Rhode Island" },
+    { value: "SOUTH CAROLINA", label: "South Carolina" },
+    { value: "SOUTH DAKOTA", label: "South Dakota" },
+    { value: "TENNESSEE", label: "Tennesse" },
+    { value: "TEXAS", label: "Texas" },
+    { value: "UTAH", label: "Utah" },
+    { value: "VERMONT", label: "Vermont" },
+    { value: "VIRGINIA", label: "Virginia" },
+    { value: "WASHINGTON", label: "Washington" },
+    { value: "WEST VRIGINIA", label: "West Virginia" },
+    { value: "WISCONSIN", label: "Wisconsin" },
+    { value: "WYOMING", label: "Wyoming" },
+  ];

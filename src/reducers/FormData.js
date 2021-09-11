@@ -2,7 +2,7 @@ export const formChangeData = (state, event) => {
     //console.log(`Key: ${event.name}, Value: ${event.value}`)
     if(event.reset) {
       return {
-        Years: "1",
+        Years: {value: "1", label:"1 Year"},
         University: "",
         in_state: false,
         Career: "",
@@ -18,3 +18,11 @@ export const formChangeData = (state, event) => {
       [event.name]: event.value
     }
   }
+
+  export const formSelectChange = (state, action) => {
+    console.log(`Key: ${action.name}, Value: ${action.value}`)
+    return {
+        ...state,
+        [action.name]: action.value
+    }
+}
