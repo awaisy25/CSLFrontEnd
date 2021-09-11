@@ -2,6 +2,7 @@ import React, { useReducer, useState, useEffect } from "react";
 import "./styles/Form.scss";
 import { formChangeData } from "../reducers/FormData";
 import { getData, postCalculations } from "../services/Calculator-api";
+import {States} from "../utils/dataSets";
 import SelectOptions from "./SelectOptions";
 import ToolTip from "./ToolTip";
 import FormResults from "./FormResults";
@@ -72,57 +73,7 @@ const Form = () => {
     showError({exists: false, message: ''});
     setSubmitted(false);
   };
-  const States = [
-    { id: "ALABAMA", title: "Alabama" },
-    { id: "ALASKA", title: "Alaska" },
-    { id: "ARIZONA", title: "Arizona" },
-    { id: "ARKANSAS", title: "Arkansas" },
-    { id: "CALIFORNIA", title: "California" },
-    { id: "CONNETICUT", title: "Conneticut" },
-    { id: "DELAWARE", title: "Delaware" },
-    { id: "FLORIDA", title: "Florida" },
-    { id: "GEORGIA", title: "Georgia" },
-    { id: "HAWAII", title: "Hawaii" },
-    { id: "IDAHO", title: "Idaho" },
-    { id: "ILLINOIS", title: "Illinois" },
-    { id: "INDIANA", title: "Indiana" },
-    { id: "IOWA", title: "Iowa" },
-    { id: "KANSAS", title: "Kansas" },
-    { id: "COLORADO", title: "Colorado" },
-    { id: "KENTUCKY", title: "Kentucky" },
-    { id: "LOUISIANA", title: "Lousiana" },
-    { id: "MAINE", title: "Maine" },
-    { id: "MARLYAND", title: "Maryland" },
-    { id: "MASSACHUSETTS", title: "Massachusetts" },
-    { id: "MICHIGAN", title: "Michigan" },
-    { id: "MINNESOTA", title: "Minnesota" },
-    { id: "MISSISSIPPI", title: "Mississipi" },
-    { id: "MISSOURI", title: "Missouri" },
-    { id: "NEBRASKA", title: "Nesbraka" },
-    { id: "NEVADA", title: "Nevada" },
-    { id: "NEW HAMPSHIRE", title: "New Hampshire" },
-    { id: "NEW JERSEY", title: "New Jersey" },
-    { id: "NEW MEXICO", title: "New Mexico" },
-    { id: "NEW YORK", title: "New York" },
-    { id: "NORTH CAROLINA", title: "North Carolina" },
-    { id: "NORTH DAKOTA", title: "North Dakota" },
-    { id: "OHIO", title: "Ohio" },
-    { id: "OKLAHOMA", title: "Oklahoma" },
-    { id: "OREGON", title: "Oregon" },
-    { id: "PENNSYLVANIA", title: "Pennsylvania" },
-    { id: "RHODE ISLAND", title: "Rhode Island" },
-    { id: "SOUTH CAROLINA", title: "South Carolina" },
-    { id: "SOUTH DAKOTA", title: "South Dakota" },
-    { id: "TENNESSEE", title: "Tennesse" },
-    { id: "TEXAS", title: "Texas" },
-    { id: "UTAH", title: "Utah" },
-    { id: "VERMONT", title: "Vermont" },
-    { id: "VIRGINIA", title: "Virginia" },
-    { id: "WASHINGTON", title: "Washington" },
-    { id: "WEST VRIGINIA", title: "West Virginia" },
-    { id: "WISCONSIN", title: "Wisconsin" },
-    { id: "WYOMING", title: "Wyoming" },
-  ];
+
 
   return (
     <div className={isSubmit ? "formAndData": "form"}>
