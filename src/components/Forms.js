@@ -3,7 +3,6 @@ import "./styles/Form.scss";
 import { formChangeData } from "../reducers/FormData";
 import { getData, postCalculations } from "../services/Calculator-api";
 import {years, States} from "../utils/dataSets";
-import SelectOptions from "./SelectOptions";
 import ToolTip from "./ToolTip";
 import FormResults from "./FormResults";
 import Select from 'react-select';
@@ -12,11 +11,11 @@ const Form = () => {
   //default form data
   const defaultData = {
     Years: years[0], //format for react select
-    University: "",
+    University: "", //will have as blank, because required field with needed validation
     in_state: false,
-    Career: "",
-    State: "US",
-    Budget: 0,
+    Career: "", //will have as blank, because required field with needed validation
+    State: States[0], //format for react select
+    Budget: "",
     percent_income: 20,
     interest_rate: 5,
   };
@@ -72,8 +71,9 @@ const Form = () => {
     //console.log(action);
     dispatch({
       name: action.name,
-      value: event.value,
+      value: event, //this is an object of value and label needed for react-select
     })
+    //console.log(formData);
   }
 
   const clearForm = () => {
@@ -85,17 +85,7 @@ const Form = () => {
   };
 
 
-//styles for select
-const selectStyles = {
-  control: styles => ({ ...styles, backgroundColor: 'white' }),
-  option: (styles, { data, isDisabled, isFocused, isSelected }) => {
-    return {
-      ...styles,
-      backgroundColor: isSelected ? 'rgb(140, 48, 48)' : 'white',
-      color: isSelected ? 'white': 'black',
-    }
-  },
-}
+
   return (
     <div className={isSubmit ? "formAndData": "form"}>
       <form onSubmit={handleSubmit}>
@@ -109,9 +99,8 @@ const selectStyles = {
             &nbsp;Years in School (opt.):
             <Select 
             options={years}
-            defaultValue={formData.Years}
+            value={formData.Years}
             isSearchable
-            styles={selectStyles}
             name="Years"
             onChange={selectHandleChange}
             />
@@ -122,9 +111,8 @@ const selectStyles = {
             &nbsp;University:
             <Select
             options={unvData}
-            defaultValue={{value:"", label:"University"}}
+            value={formData.University}
             isSearchable
-            styles={selectStyles}
             name="University"
             onChange={selectHandleChange}
             />
@@ -146,9 +134,8 @@ const selectStyles = {
             &nbsp;Career Choice:
             <Select
               options={careerData}
-              defaultValue={{value:"", label:"Career"}}
+              value={formData.Career}
               isSearchable
-              styles={selectStyles}
               name="Career"
               onChange={selectHandleChange}
             />
@@ -159,9 +146,8 @@ const selectStyles = {
             &nbsp;State to live after school (opt.):
             <Select 
               options={States}
-              defaultValue={States[0]}
+              value={formData.State}
               isSearchable
-              styles={selectStyles}
               name="State"
               onChange={selectHandleChange}
             />
