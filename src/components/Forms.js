@@ -2,20 +2,20 @@ import React, { useReducer, useState, useEffect } from "react";
 import "./styles/Form.scss";
 import { formChangeData } from "../reducers/FormData";
 import { getData, postCalculations } from "../services/Calculator-api";
-import {States} from "../utils/dataSets";
-import SelectOptions from "./SelectOptions";
+import {years, States} from "../utils/dataSets";
 import ToolTip from "./ToolTip";
 import FormResults from "./FormResults";
+import Select from 'react-select';
 //adding a comment
 const Form = () => {
   //default form data
   const defaultData = {
-    Years: "1",
-    University: "",
+    Years: years[0], //format for react select
+    University: "", //will have as blank, because required field with needed validation
     in_state: false,
-    Career: "",
-    State: "US",
-    Budget: 0,
+    Career: "", //will have as blank, because required field with needed validation
+    State: States[0], //format for react select
+    Budget: "",
     percent_income: 20,
     interest_rate: 5,
   };
@@ -66,6 +66,16 @@ const Form = () => {
     });
   };
 
+  const selectHandleChange = (event, action) => {
+    //console.log(event);
+    //console.log(action);
+    dispatch({
+      name: action.name,
+      value: event, //this is an object of value and label needed for react-select
+    })
+    //console.log(formData);
+  }
+
   const clearForm = () => {
     dispatch({
       reset: true,
@@ -84,31 +94,26 @@ const Form = () => {
         </div>
         <div className="calc-fields">
           <label>
-            <ToolTip text="The number of years you will spend at your selected University" />
+          <ToolTip text="The number of years you will spend at your selected University" />
             &nbsp;Years in School (opt.):
-            <select
-              className="select"
-              name="Years"
-              onChange={handleChange}
-              value={formData.Years}
-            >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-            </select>
+            <Select 
+            options={years}
+            value={formData.Years}
+            isSearchable
+            name="Years"
+            onChange={selectHandleChange}
+            />
           </label>
 
           <label>
           <ToolTip text="The University you select, the yearly tuition of that school will be part of the calculation." />
             &nbsp;University:
-            <SelectOptions
-              name="University"
-              change={handleChange}
-              value={""}
-              items={unvData}
+            <Select
+            options={unvData}
+            value={formData.University}
+            isSearchable
+            name="University"
+            onChange={selectHandleChange}
             />
           </label>
 
@@ -126,22 +131,24 @@ const Form = () => {
           <label>
           <ToolTip text="The career you want to pursue. Note the salary for each career differs by state" />
             &nbsp;Career Choice:
-            <SelectOptions
+            <Select
+              options={careerData}
+              value={formData.Career}
+              isSearchable
               name="Career"
-              change={handleChange}
-              value={""}
-              items={careerData}
+              onChange={selectHandleChange}
             />
           </label>
 
           <label>
           <ToolTip text="The state to live in after college. This field is Not Required Can leave as is if you are unsure where you want to live after college" />
             &nbsp;State to live after school (opt.):
-            <SelectOptions
+            <Select 
+              options={States}
+              value={formData.State}
+              isSearchable
               name="State"
-              change={handleChange}
-              value={"US"}
-              items={States}
+              onChange={selectHandleChange}
             />
           </label>
           <label>

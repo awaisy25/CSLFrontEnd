@@ -15,7 +15,17 @@ export const getData = (param) => {
         axios.get(url, {headers})
         .then(response => {
             //console.log(response);
-            resolve(response.data);
+             ///have to rename the id and title property to value and label for react select
+             const Universities = response.data.Universities.map(University => {
+                return {value: University.id, label: University.title}
+            })
+            const Jobs = response.data.Jobs.map(Job => {
+                return {value: Job.id, label: Job.title}
+            })
+            //adding original index at begggining of both arrays
+            //Universities.unshift({value: "", label: "University"});
+            //Jobs.unshift({value: "", label: "Career"});
+            resolve({Universities, Jobs});
         }).catch(error => {
             reject(error)
         })
@@ -41,15 +51,16 @@ export const postCalculations = async(data) => {
     const url = `https://1pf0hc31cf.execute-api.us-east-2.amazonaws.com/dev/calculations/`;
     //body data that will be passed in to the rest call
     const dataBody = {
-        Job_ID: parseInt(data.Career),
-        University_ID: parseInt(data.University),
-        State: data.State,
-        Years: parseInt(data.Years),
+        Job_ID: parseInt(data.Career.value),
+        University_ID: parseInt(data.University.value),
+        State: data.State.value,
+        Years: parseInt(data.Years.value),
         Budget: parseInt(data.Budget),
         Percent_income: parseFloat(data.percent_income),
         Interest_rate: parseFloat(data.interest_rate),
         In_state: data.in_state
     }
+    //console.log(dataBody);
     const headers = {
         'Content-Type': 'application/json',
         'x-api-key': 'ak5nedNedF9jtFeKW85Td6srqguurDYhd276Wtx9',
@@ -61,7 +72,7 @@ export const postCalculations = async(data) => {
             headers: headers
             })
             .then(response => {
-                console.log(response);
+                //console.log(response);
                 resolve(response.data)
             })
             .catch(error => {

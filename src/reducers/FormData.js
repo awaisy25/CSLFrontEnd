@@ -2,12 +2,12 @@ export const formChangeData = (state, event) => {
     //console.log(`Key: ${event.name}, Value: ${event.value}`)
     if(event.reset) {
       return {
-        Years: "1",
+        Years: { value: "1", label:"1 Year"}, //formatted for react select
         University: "",
         in_state: false,
         Career: "",
-        State: "US",
-        Budget: 0,
+        State: { value: "US", label: "State"}, //formatted for react select
+        Budget: "",
         percent_income: 20,
         interest_rate: 5
       }
@@ -18,3 +18,4 @@ export const formChangeData = (state, event) => {
       [event.name]: event.value
     }
   }
+
