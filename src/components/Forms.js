@@ -95,7 +95,7 @@ const Form = () => {
         <div className="calc-fields">
           <label>
           <ToolTip text="The number of years you will spend at your selected University" />
-            &nbsp;Years in School (opt.):
+            &nbsp;<span className="field-title">Years in School (opt.):</span>
             <Select 
             options={years}
             value={formData.Years}
@@ -107,7 +107,7 @@ const Form = () => {
 
           <label>
           <ToolTip text="The University you select, the yearly tuition of that school will be part of the calculation." />
-            &nbsp;University:
+            &nbsp;<span className="field-title">University:</span>
             <Select
             options={unvData}
             value={formData.University}
@@ -115,11 +115,21 @@ const Form = () => {
             name="University"
             onChange={selectHandleChange}
             />
+             <input
+             //select 2 doesn't have required field
+             //having input that is hidden and will update when select above changes
+            tabIndex={-1}
+            autoComplete="off"
+            required
+            value={formData.University}
+            onChange={() => {}} //does nothing used to avoid console error
+            className="select-2-field-validation"
+            />
           </label>
 
           <label className="state">
           <ToolTip text="Select this box if you live in the same state as the University selected" />
-            &nbsp;In State:
+            &nbsp;<span className="field-title">In State:</span>
             <input
               type="checkbox"
               name="in_state"
@@ -130,7 +140,7 @@ const Form = () => {
 
           <label>
           <ToolTip text="The career you want to pursue. Note the salary for each career differs by state" />
-            &nbsp;Career Choice:
+            &nbsp;<span className="field-title">Career Choice:</span>
             <Select
               options={careerData}
               value={formData.Career}
@@ -138,11 +148,19 @@ const Form = () => {
               name="Career"
               onChange={selectHandleChange}
             />
+            <input
+            tabIndex={-1}
+            autoComplete="off"
+            required
+            value={formData.Career}
+            onChange={() => {}}
+            className="select-2-field-validation"
+            />
           </label>
 
           <label>
           <ToolTip text="The state to live in after college. This field is Not Required Can leave as is if you are unsure where you want to live after college" />
-            &nbsp;State to live after school (opt.):
+            &nbsp;<span className="field-title">State to live after school (opt.):</span>
             <Select 
               options={States}
               value={formData.State}
@@ -153,7 +171,7 @@ const Form = () => {
           </label>
           <label>
           <ToolTip text="How much money you plan to put towards tuition each year. This include scholarships & personal money. This is the amount contributed while in school" />
-            &nbsp;Yearly amount paid towards Tuition ($):
+            &nbsp;<span className="field-title">Yearly amount paid towards Tuition ($):</span>
             <input
               className="input"
               type="number"
@@ -168,7 +186,7 @@ const Form = () => {
           </label>
           <label>
           <ToolTip text="The percent of your income that goes towards your student loan payments. Note the default is 20%, but can be higher depending on interest rate." />
-            &nbsp;Amount From Salary (%):
+            &nbsp;<span className="field-title">Amount From Salary (%):</span>
             <input
               className="input"
               type="number"
@@ -184,7 +202,7 @@ const Form = () => {
           </label>
           <label>
           <ToolTip text="The average interest rate for your loans. Default is 5%" />
-            &nbsp;Interest Rate (%):
+            &nbsp;<span className="field-title">Interest Rate (%):</span>
             <input
               className="input formLast"
               type="number"
