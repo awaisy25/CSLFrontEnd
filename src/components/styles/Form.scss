@@ -54,7 +54,7 @@
 
 label {
   color: rgb(140, 48, 48);
-  font-weight: bold;
+ 
   font-size: 16px;
 }
 .inputNumeric {
@@ -119,4 +119,11 @@ form select {
   color: red;
   font-weight: bold;
   margin-top: 10px;
+}
+
+.select-2-field-validation {
+  opacity: 0,;
+  width: 25%;
+  height: 0;
+  position: absolute
 }
