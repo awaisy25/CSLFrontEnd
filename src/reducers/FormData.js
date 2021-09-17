@@ -12,6 +12,13 @@ export const formChangeData = (state, event) => {
         interest_rate: 5
       }
     }
+    //rests checkbox to false so its not set to true for private universities
+    else if (event.resetStateCheck) {
+      return {
+        ...state,
+        in_state: false
+      }
+    }
     return {
       //JavaScript spread .. gets rest of the data
       ...state,
