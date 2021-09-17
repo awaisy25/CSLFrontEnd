@@ -39,12 +39,14 @@ export const getUniversity = (id) => {
         'x-api-key': 'ak5nedNedF9jtFeKW85Td6srqguurDYhd276Wtx9',
         Accept: 'application/json'
     };
-    axios.get(url, {headers})
-    .then(response => {
-        console.log(response);
-    }).catch(error => {
-        console.log(error.response);
-    })
+    return new Promise((resolve, reject) => {
+        axios.get(url, {headers})
+            .then(response => {
+                resolve(response.data)
+            }).catch(error => {
+                reject(error.response.data);
+            })
+    });
 }
 //POST Request to pass in the data from the Form and retrieve the calculations
 export const postCalculations = async(data) => {

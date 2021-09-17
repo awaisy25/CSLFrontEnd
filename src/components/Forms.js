@@ -1,7 +1,7 @@
 import React, { useReducer, useState, useEffect } from "react";
 import "./styles/Form.scss";
 import { formChangeData } from "../reducers/FormData";
-import { getData, postCalculations } from "../services/Calculator-api";
+import { getData, postCalculations, getUniversity } from "../services/Calculator-api";
 import {years, States} from "../utils/dataSets";
 import ToolTip from "./ToolTip";
 import FormResults from "./FormResults";
@@ -25,6 +25,7 @@ const Form = () => {
   const [careerData, setCareerData] = useState([]);
   const [calcResults, setCalcResults] = useState({}); 
   const [isError, showError] = useState({exists: false, message: ""});
+  const [isStateSchool, checkStateSchool] = useState(false);
   //each render retrieve Career and University data from API
   useEffect(() => {
     getData("jandu")
@@ -73,15 +74,45 @@ const Form = () => {
       name: action.name,
       value: event, //this is an object of value and label needed for react-select
     })
-    //console.log(formData);
+  }
+
+  const UniversityHandleChange = (event,action) => {
+    getUniversity(event.value) //university id  is in the object propery value
+      .then(data => {
+        //if in  state tuition * out of state tuition are the same then it;s not a state school
+        if (data.in_state === data.out_state) {
+            checkStateSchool(false);
+            dispatch({
+              resetStateCheck: true
+            })
+        //when they are the same then show in state chech box
+        } else {
+          checkStateSchool(true);
+        }
+      })
+      .catch(error => {
+        console.log(JSON.stringify(error));
+        //this error should be false from the rest call to display the in state checkbox to hidden
+        checkStateSchool(false);
+        dispatch({
+          resetStateCheck: true
+        })
+      })
+    //updating university state
+    dispatch({
+      name: action.name,
+      value: event, //this is an object of value and label needed for react-select
+    })
   }
 
   const clearForm = () => {
     dispatch({
       reset: true,
     });
+    //clear form result component, erro messages &in state checkboxes
     showError({exists: false, message: ''});
     setSubmitted(false);
+    checkStateSchool(false);
   };
 
 
@@ -113,7 +144,7 @@ const Form = () => {
             value={formData.University}
             isSearchable
             name="University"
-            onChange={selectHandleChange}
+            onChange={UniversityHandleChange}
             />
              <input
              //select 2 doesn't have required field
@@ -126,17 +157,19 @@ const Form = () => {
             className="select-2-field-validation"
             />
           </label>
-
-          <label className="state">
-          <ToolTip text="Select this box if you live in the same state as the University selected" />
-            &nbsp;<span className="field-title">In State:</span>
-            <input
-              type="checkbox"
-              name="in_state"
-              onChange={handleChange}
-              value={formData.checkbox}
-            />
-          </label>
+            { isStateSchool && (
+              <label className="state">
+                <ToolTip text="Select this box if you live in the same state as the University selected" />
+                &nbsp;<span className="field-title">In State:</span>
+                <input
+                type="checkbox"
+                name="in_state"
+                onChange={handleChange}
+                value={formData.checkbox}
+                />
+            </label>
+            )}
+          
 
           <label>
           <ToolTip text="The career you want to pursue. Note the salary for each career differs by state" />
