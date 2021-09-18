@@ -22,3 +22,12 @@
 #navbar-title {
   font-weight: bold;
 }
+
+@media screen and (max-width: 480px) {
+  .navBar {
+    flex-direction: column;
+    border-width: 2.5px;
+
+  }
+
+}
