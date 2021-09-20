@@ -127,3 +127,27 @@ form select {
   height: 0;
   position: absolute
 }
+
+@media screen and (max-width: 480px) {
+  .form {
+    max-width: 450px;
+    margin: 30px auto;
+  }
+  .formAndData {
+    max-width: 450px;
+    max-height: 1500px;
+    margin: 30px auto;
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .field-title {
+    font-size: 12px;
+  }
+  .form-para {
+    margin-top: 7%;
+    margin-bottom: 10%;
+  }
+}

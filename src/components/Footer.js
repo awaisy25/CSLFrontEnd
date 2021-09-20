@@ -22,9 +22,9 @@ function Footer() {
       <div className="footerLeft">
         <div className="footerLeftHeader">Share On</div>
         <div className="footerLeftImages">
-          <a href={links.fb} target="_blank" rel="noreferrer"><img src={fb} alt="" width="30" height="30" /></a>
-          <a href={links.tw} target="_blank" rel="noreferrer"><img src={tw} alt="" width="30" height="30" /> </a>
-          <a href={links.ln} target="_blank" rel="noreferrer"><img src={ln} alt="" width="30" height="30" /> </a>
+          <a href={links.fb} target="_blank" rel="noreferrer"><img src={fb} alt="" className="social-icons"/></a>
+          <a href={links.tw} target="_blank" rel="noreferrer"><img src={tw} alt="" className="social-icons"/> </a>
+          <a href={links.ln} target="_blank" rel="noreferrer"><img src={ln} alt="" className="social-icons"/> </a>
         </div>
       </div>
 

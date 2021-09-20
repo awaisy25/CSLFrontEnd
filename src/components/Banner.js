@@ -6,14 +6,14 @@ function Banner() {
     <div className="bannerWrapper">
       <div className="banner">
         <div className="bannerLeft">
-          <div className="bHeader">Calculate</div>
-          <div className="bStudentHeader">Student Loans</div>
+          <h2 className="bHeader">Calculate</h2>
+          <h2 className="bStudentHeader">Student Loans</h2>
         </div>
-        <div className="bannerRightOk">
+        <p className="bannerRightOk">
           Unsure of how long it will take you to pay off your student loans
           after graduation? Use our Calculator to estimate how long & how much
           it will take you to pay off your student loans. Try it out!
-        </div>
+        </p>
       </div>
     </div>
   );
