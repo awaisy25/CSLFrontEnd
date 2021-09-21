@@ -35,6 +35,22 @@
     font-weight: bold;
   }
 
+  @media screen and (max-width: 1000px) {
+    .line-seperator {
+      border-left: 0px;
+        height: 0px;
+    }
+    .results-header {
+      margin-top: 5%;
+      margin-bottom: 5%;
+  }
+  
+  /*Decreasing the text size*/
+    p  {
+      font-size: 14px;
+    }
+
+  }
   @media screen and (max-width: 480px) {
     .line-seperator {
       border-left: 0px;
