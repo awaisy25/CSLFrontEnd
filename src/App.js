@@ -6,7 +6,7 @@ import Privacy from './routes/Privacy';
 import FAQ from './routes/FAQ';
 import Home from './routes/Home';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import './App.css';
+import './App.scss';
 
 function App() {
   //the Navbar an footer component will be displayed across all of the pages

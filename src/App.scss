@@ -1,0 +1,30 @@
+* {
+    font-size: 16px;
+    font-family: Avenir;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 850px) {
+    * {
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 480px) {
+    * {
+        font-size: 12px;
+    }
+    .page-header {
+        font-size: 16px;
+    }
+    .page-subheader {
+        font-size: 14px;
+    }
+}
+
+
+
+
+

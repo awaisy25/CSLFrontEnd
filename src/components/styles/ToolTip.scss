@@ -2,7 +2,11 @@
     position: relative;
     display:inline-block;
 }
+.tool-tip {
+  width: 20px;
+  height: 20px;
 
+}
 .tool-tip-wrapper .tip-info {
   visibility: hidden;
   position: absolute;
@@ -20,4 +24,17 @@
 }
 .tool-tip-wrapper:hover .tip-info {
     visibility: visible;
+}
+
+@media screen and (max-width: 480px) {
+  .tool-tip {
+    width: 14px;
+    height: 14px;
+  
+  }
+
+  .tool-tip-wrapper .tip-info {
+    font-size: 10px;
+    margin-left: -20px;
+  }
 }

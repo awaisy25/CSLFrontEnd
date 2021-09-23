@@ -41,7 +41,7 @@ function FAQ() {
         </p>
     </div>
         <div className="paragraph-section">
-            <h3 className="app-header">Interest Rates?</h3>
+            <h3 className="page-header">Interest Rates?</h3>
             <p>
                 Interest rates are one of the main reasons student loans take time to pay off. 
                 Interest rates are the additional charges that gets paid to the loan provider in exchange for borrowing their money. 
@@ -57,7 +57,7 @@ function FAQ() {
             </p>
         </div>
         <div className="paragraph-section">
-       <h3 className="app-header">Data Resources?</h3>
+       <h3 className="page-header">Data Resources?</h3>
         <p>We got the university tuition by looking through the university's listed through this site <a href={links.ICU} className="link" target="blank">https://www.4icu.org/us/a-z/.</a>
         </p>
         <p>Salary data for each job is researched through multiple online resources. We analyzed the data from multiple source to create the best possible assumption.
@@ -66,7 +66,7 @@ function FAQ() {
             and can provide more insight. Please contact us at <strong>contact@calculatestudentloans.com</strong></p>
     </div>
     <div className="paragraph-section">
-        <h3 className="app-header">Factors that are not included</h3>
+        <h3 className="page-header">Factors that are not included</h3>
         <ul className="list-style">
             <li>Taxes (State & Federal)</li>
             <li>University dorming prices</li>
