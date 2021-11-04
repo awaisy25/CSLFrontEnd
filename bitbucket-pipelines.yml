@@ -52,6 +52,7 @@ pipelines:
             enabled: false
           script:
             # sync your files to S3
+            - echo "Updating www.calculatestudentloans.com s3 bucket"
             - pipe: atlassian/aws-s3-deploy:0.4.4
               variables:
                 AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
@@ -60,9 +61,18 @@ pipelines:
                 S3_BUCKET: 'www.calculatestudentloans.com'
                 LOCAL_PATH: 'build'
             # triggering a distribution invalidation to refresh the CDN caches
+            - echo "Distribution invalid refresh to Distribution ID E3605J16MA8FB0"
             - pipe: atlassian/aws-cloudfront-invalidate:0.1.1
               variables:
                 AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
                 AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
                 AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
                 DISTRIBUTION_ID: 'E3605J16MA8FB0'
+            #have a second cloud front distribution for redirect
+            - echo "Distribution invalid refresh to Distribution ID E1LXKEXX3R1ULD"
+            - pipe: atlassian/aws-cloudfront-invalidate:0.1.1
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                DISTRIBUTION_ID: 'E1LXKEXX3R1ULD'
