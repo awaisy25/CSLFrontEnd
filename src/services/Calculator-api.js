@@ -5,6 +5,7 @@ import axios from 'axios'
 
 //GET Request for retrieivng the Career and University Data from The Databases
 export const getData = (param) => {
+    console.log(process.env.REACT_APP_API_KEY);
     const url = `https://1pf0hc31cf.execute-api.us-east-2.amazonaws.com/dev/${param}/`;
     const headers = {
         'Content-Type': 'application/json',

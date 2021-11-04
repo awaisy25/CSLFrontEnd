@@ -6,7 +6,6 @@ import React from 'react';
 import "../components/styles/FormResults.scss"
 
 function FormResults(props) {
-    console.log(props.data)
     //const Budget = props.budget;
     const {
         University, //will hold the university name, both in state and out state tuition
