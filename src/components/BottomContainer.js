@@ -4,7 +4,6 @@ import "./styles/BottomContainer.scss";
 function BottomContainer() {
   return (
     <div className="bottomContainer">
-      <div className="containerImg">
         <div className="bottomContainerAbout">
           <div className="aboutHeader">
             How Our <span id="bottom-calc-header">Calculator</span> Works
@@ -58,7 +57,6 @@ function BottomContainer() {
             </a>
           </div>
         </div>
-      </div>
     </div>
   );
 }

@@ -6,22 +6,6 @@
   z-index: 1;
 }
 
-.containerImg {
-  background: linear-gradient(
-      to bottom,
-      rgb(242, 242, 242, 1),
-      rgb(242, 242, 242, 0.94),
-      rgb(242, 242, 242, 0.45)
-    ),
-    url("https://www.calculatestudentloans.com/student_loan_calculator/static/images/highschool.png");
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: 100%;
-  width: 100%;
-}
 
 .bottomContainerAbout {
   background: transparent;
