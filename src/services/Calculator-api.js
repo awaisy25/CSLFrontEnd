@@ -9,7 +9,7 @@ export const getData = (param) => {
     const url = `https://1pf0hc31cf.execute-api.us-east-2.amazonaws.com/dev/${param}/`;
     const headers = {
         'Content-Type': 'application/json',
-        'x-api-key': 'ak5nedNedF9jtFeKW85Td6srqguurDYhd276Wtx9',
+        'x-api-key': process.env.REACT_APP_API_KEY,
         Accept: 'application/json'
     };
     return new Promise((resolve, reject) => {
@@ -37,7 +37,7 @@ export const getUniversity = (id) => {
     const url = `https://1pf0hc31cf.execute-api.us-east-2.amazonaws.com/dev/universities/${id}`;
     const headers = {
         'Content-Type': 'application/json',
-        'x-api-key': 'ak5nedNedF9jtFeKW85Td6srqguurDYhd276Wtx9',
+        'x-api-key': process.env.REACT_APP_API_KEY,
         Accept: 'application/json'
     };
     return new Promise((resolve, reject) => {
@@ -66,7 +66,7 @@ export const postCalculations = async(data) => {
     //console.log(dataBody);
     const headers = {
         'Content-Type': 'application/json',
-        'x-api-key': 'ak5nedNedF9jtFeKW85Td6srqguurDYhd276Wtx9',
+        'x-api-key': process.env.REACT_APP_API_KEY,
         Accept: '*/*'
     };
     return new Promise((resolve, reject) => {
