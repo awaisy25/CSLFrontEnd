@@ -51,7 +51,7 @@ function BottomContainer() {
             <a
               target="blank"
               style={{ color: "rgb(140, 48,48)", fontWeight: "bold" }}
-              href="https://docs.google.com/forms/d/e/1FAIpQLScYlvtxvNgWn5zEEONSpHGMWjfQ5R0HlO_-XH8jyao96V0XKw/viewform?usp=sf_link"
+              href="https://docs.google.com/forms/d/1LAKurC13A4WMph7kcNwGWsJbLw33wc7n-XIODgJ4C8Y/edit"
             >
               We'd love your feedback!
             </a>
