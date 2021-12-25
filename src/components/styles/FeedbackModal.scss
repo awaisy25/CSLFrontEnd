@@ -1,0 +1,56 @@
+
+.feedbackModal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.25);
+    z-index: 1;
+  }
+
+  
+.modal-content {
+    background-color: white;
+    position: absolute;
+    padding: 45px;
+    width: 50%;
+    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
+    color: rgb(140, 48, 48);
+    border-radius: 5px;
+    text-align: center;
+    /*css animation*/
+    animation-name: fade-in;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+  }
+  /*this creates the fade animation*/
+  @keyframes fade-in {
+      0% { opacity: .2; }
+      25% { opacity: .4; }
+      50% { opacity: .6; }
+      75% { opacity: .8; }
+      100% { opacity: 1; }
+  }
+
+  .close {
+    position: absolute;
+    right: 40px;
+    top: 25px;
+}
+
+a {
+    text-decoration: underline;
+}
+@media screen and (max-width: 600px) {
+    .modal-content {
+        padding: 50px;
+        width: 65%;
+    }
+    .feedback-header {
+        font-size: 18px;
+    }
+}
