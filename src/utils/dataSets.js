@@ -8,7 +8,7 @@ export const years = [
     {value:"3", label:"3 Years"},
     {value:"4", label:"4 Years"},
     {value:"5", label:"5 Years"},
-    {value:"6", label:"6 years"}
+    {value:"6", label:"6 Years"}
   ]
 
   //states. Default State value is for getting the average salary in the U.S
