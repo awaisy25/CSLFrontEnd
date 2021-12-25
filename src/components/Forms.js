@@ -5,6 +5,7 @@ import { getData, postCalculations, getUniversity } from "../services/Calculator
 import {years, States} from "../utils/dataSets";
 import ToolTip from "./ToolTip";
 import FormResults from "./FormResults";
+import FeedbackModal from "./FeedbackModal";
 import Select from 'react-select';
 //adding a comment
 const Form = () => {
@@ -26,18 +27,25 @@ const Form = () => {
   const [calcResults, setCalcResults] = useState({}); 
   const [isError, showError] = useState({exists: false, message: ""});
   const [isStateSchool, checkStateSchool] = useState(false);
-  //each render retrieve Career and University data from API
+  const [submitCounter, setSubmitCounter] = useState(0); //this will value be stored in browser as session storage
+  const [modalVisible, setModalVisible] = useState(false);
+  
   useEffect(() => {
+    //each render retrieve Career and University data from API
     getData("jandu")
       .then((data) => {
-        //seeting the select options for career and university. The arrays will be passed to SelectOptions component
+        //setting the select options for career and university. The arrays will be passed to SelectOptions component
         setUnvData(data.Universities);
         setCareerData(data.Jobs);
       })
       .catch((error) => {
         console.log(error);
       });
+      //getting the submit counter from browser storage. this helps with managing state when refreshing page or switching pages
+      const storedSubmitCounter = parseInt(sessionStorage.getItem('submitCounterStored') || "0");
+      setSubmitCounter(storedSubmitCounter);
     //array will make sure it only runs once
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSubmit = async (event) => {
@@ -49,6 +57,16 @@ const Form = () => {
       //show the results section
       showError({exists: false, message: ''});
       setSubmitted(true);
+      //increment submit counter in state and browser storage. once it is 3 show feedback modal
+      setSubmitCounter(submitCounter + 1);
+      sessionStorage.setItem("submitCounterStored", submitCounter + 1);
+      //have to add one because increments in dom right away not in state code
+      if(submitCounter + 1 === 3) {
+        //console.log("counter from submission: " + (submitCounter + 1));
+        setTimeout(() => {
+          setModalVisible(true);
+        }, 3000); //show after 3 seconds
+      }
     } catch(error){
       setSubmitted(false);
       //updating error object if custom error message is recieved
@@ -257,6 +275,7 @@ const Form = () => {
             <input id="reset" type="reset" onClick={clearForm} value="Clear" />
           </div>
         </div>
+        {<FeedbackModal modalVisible={modalVisible} setModalVisible={setModalVisible}/>}
         {isError.exists && <span className="errorMessage">{isError.message}</span>}
       </form>
       { isSubmit && (
