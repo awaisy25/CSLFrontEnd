@@ -1,5 +1,5 @@
 # Project Overview
-Version 2.0 of [Calculate Student Loans] (https://www.calculatestudentloans.com/)
+Calculate Student Loans (CSL) A web app that calculates your student loans. Web Site url: https://www.calculatestudentloans.com/
 
 ## Setting up Repository
 git clone https://github.com/awaisy25/CSLFrontEnd.git
